@@ -42,6 +42,7 @@ function Create(props) {
                 <input type="text" name="height" onChange={handleNumChanges} />
             </div>
             <button onClick={() => props.createSmurf(smurf)}>Create Smurf</button>
+            {props.error && !props.isLoading && <h2>There was an error creating that particular smurf.</h2>}
         </>
     )
 }

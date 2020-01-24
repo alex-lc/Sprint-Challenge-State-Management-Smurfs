@@ -17,6 +17,7 @@ function SmurfList(props) {
                     </div>
                 )
             })}
+            {props.error && !props.loading && <h2>There was an error fetching the list of smurfs.</h2>}
         </>
     )
 }

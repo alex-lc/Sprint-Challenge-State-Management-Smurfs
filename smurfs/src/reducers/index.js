@@ -1,4 +1,4 @@
-import { START_FETCH, FETCH_SUCCESS, START_CREATE, CREATE_SUCCESS } from '../actions';
+import { START_FETCH, FETCH_SUCCESS, START_CREATE, CREATE_SUCCESS, FETCH_FAIL, CREATE_FAIL } from '../actions';
 
 const initialState = {
     isLoading: false,
@@ -19,6 +19,13 @@ export const reducer = (state = initialState, action) => {
                 isLoading: false,
                 smurfs: action.payload
             }
+        case FETCH_FAIL:
+            console.log(action.payload);
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload
+            }
         case START_CREATE:
             console.log(`Hello from the create case.`);
             return {
@@ -30,6 +37,13 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 smurfs: action.payload
+            }
+        case CREATE_FAIL:
+            console.log(action.payload);
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload
             }
         default:
             return state;
