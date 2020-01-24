@@ -1,4 +1,4 @@
-import { START_FETCH, FETCH_SUCCESS } from '../actions';
+import { START_FETCH, FETCH_SUCCESS, START_CREATE, CREATE_SUCCESS } from '../actions';
 
 const initialState = {
     isLoading: false,
@@ -14,6 +14,18 @@ export const reducer = (state = initialState, action) => {
                 isLoading: true
             }
         case FETCH_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                smurfs: action.payload
+            }
+        case START_CREATE:
+            console.log(`Hello from the create case.`);
+            return {
+                ...state,
+                isLoading: true
+            }
+        case CREATE_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
