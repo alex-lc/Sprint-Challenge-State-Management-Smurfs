@@ -39,7 +39,7 @@ export const createSmurf = (smurf) => {
     }
 }
 
-export const deleteSmurf = (smurfs, smurf) => {
+export const deleteSmurf = (smurf) => {
     return dispatch => {
         dispatch({ type: START_DELETE });
         console.log(`hello from delete dispatch`);

@@ -15,7 +15,7 @@ function SmurfList(props) {
                         <p>Name: {smurf.name}</p>
                         <p>Age: {smurf.age}</p>
                         <p>Height: {smurf.height}</p>
-                        <button onClick={() => props.deleteSmurf(props.smurfs, smurf)}>Delete Smurf</button>
+                        <button onClick={() => props.deleteSmurf(smurf)}>Delete Smurf</button>
                     </div>
                 )
             })}
