@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { fetchSmurfs } from '../actions';
+import { fetchSmurfs, deleteSmurf } from '../actions';
 
 function SmurfList(props) {
     return (
@@ -15,6 +15,7 @@ function SmurfList(props) {
                         <p>Name: {smurf.name}</p>
                         <p>Age: {smurf.age}</p>
                         <p>Height: {smurf.height}</p>
+                        <button onClick={() => props.deleteSmurf(props.smurfs, smurf)}>Delete Smurf</button>
                     </div>
                 )
             })}
@@ -88,4 +89,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchSmurfs })(SmurfList);
+export default connect(mapStateToProps, { fetchSmurfs, deleteSmurf })(SmurfList);

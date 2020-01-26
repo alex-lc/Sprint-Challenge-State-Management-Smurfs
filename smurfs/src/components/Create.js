@@ -32,15 +32,15 @@ function Create(props) {
         <Form>
             <div>
                 <label htmlFor="name">Name:</label>
-                <input type="text" name="name" autocomplete="off" onChange={handleChanges} />
+                <input type="text" name="name" autoComplete="off" onChange={handleChanges} />
             </div>
             <div>
                 <label htmlFor="age">Age:</label>
-                <input type="text" name="age" autocomplete="off" onChange={handleNumChanges} />
+                <input type="text" name="age" autoComplete="off" onChange={handleNumChanges} />
             </div>
             <div>
                 <label htmlFor="height">Height:</label>
-                <input type="text" name="height" autocomplete="off" onChange={handleNumChanges} />
+                <input type="text" name="height" autoComplete="off" onChange={handleNumChanges} />
             </div>
             <button onClick={() => props.createSmurf(smurf)}>Create Smurf</button>
             {props.error && !props.isLoading && <h2>There was an error creating that particular smurf.</h2>}

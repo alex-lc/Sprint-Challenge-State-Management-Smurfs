@@ -1,4 +1,5 @@
-import { START_FETCH, FETCH_SUCCESS, START_CREATE, CREATE_SUCCESS, FETCH_FAIL, CREATE_FAIL } from '../actions';
+import axios from 'axios';
+import { START_FETCH, FETCH_SUCCESS, START_CREATE, CREATE_SUCCESS, FETCH_FAIL, CREATE_FAIL, START_DELETE, DELETE_SUCCESS } from '../actions';
 
 const initialState = {
     isLoading: false,
@@ -44,6 +45,15 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 error: action.payload
+            }
+        case START_DELETE:
+            return {
+                ...state,
+            }
+        case DELETE_SUCCESS:
+            return {
+                ...state,
+                smurfs: action.payload
             }
         default:
             return state;

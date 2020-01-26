@@ -5,6 +5,8 @@ export const START_CREATE = 'START_CREATE';
 export const CREATE_SUCCESS = 'CREATE_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
 export const CREATE_FAIL = 'CREATE_FAIL';
+export const START_DELETE = 'START_DELETE';
+export const DELETE_SUCCESS = 'DELETE_SUCCESS';
 
 export const fetchSmurfs = () => {
     return dispatch => {
@@ -33,6 +35,21 @@ export const createSmurf = (smurf) => {
             .catch((err) => {
                 // console.log(err);
                 dispatch({ type: CREATE_FAIL, payload: err });
+            })
+    }
+}
+
+export const deleteSmurf = (smurfs, smurf) => {
+    return dispatch => {
+        dispatch({ type: START_DELETE });
+        console.log(`hello from delete dispatch`);
+        axios.delete(`http://localhost:3333/smurfs/${smurf.id}`)
+            .then((res) => {
+                // console.log(res);
+                dispatch({ type: DELETE_SUCCESS, payload: res.data });
+            })
+            .catch((err) => {
+                console.log(err);
             })
     }
 }
